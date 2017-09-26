@@ -67,7 +67,10 @@ module.exports = function (karma) {
 
 		coverageReporter: {
 			dir: './build/coverage/',
-			type: 'html'
+			reporters: [
+				{ type: 'html' },
+				{ type: 'lcovonly', subdir: '.', file: 'lcov.info' }
+			]
 		},
 
 		// web server port
