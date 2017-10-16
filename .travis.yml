@@ -2,6 +2,9 @@ language: node_js
 cache:
   directories:
     - node_modules
+branches:
+  only:
+    - master
 node_js:
   - 8
 before_install:
@@ -10,5 +13,6 @@ before_script:
   - npm prune
 script:
   - npm test
+  - npm run build
 after_success:
   - npm run report-coverage
