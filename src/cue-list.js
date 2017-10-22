@@ -53,7 +53,7 @@ const tryTrigger = (video) => (cue) => {
 /**
  * Creates a new cue list.
  *
- * @param   {HTMLVideoElement} video
+ * @param   {HTMLVideoElement} video    The video element to trigger cue points.
  * @returns {Object}
  */
 function createCueList(video) {
@@ -76,11 +76,8 @@ function createCueList(video) {
 		add(offsets, handler) {
 
 			offsets = Array.isArray(offsets) ? offsets : [ offsets ];
-
 			offsets.map((offset) => {
-
 				cueList.push({
-
 					offset:    offset,
 					handler:   handler,
 					triggered: false,
@@ -90,9 +87,9 @@ function createCueList(video) {
 		},
 
 		/**
-		 * Removes cue points with the given offsets.
+		 * Removes cue points with the given offsets. All cue points are removed if no argument is passed.
 		 *
-		 * @param {Array} offsets
+		 * @param {Array} offsets   A list of offsets as a number of seconds, or a percentage as a string.
 		 */
 		remove(offsets) {
 
@@ -138,7 +135,7 @@ function createCueList(video) {
 		},
 
 		/**
-		 * Resets all cue points.
+		 * Resets the triggered state of all cue points.
 		 */
 		reset() {
 
@@ -148,7 +145,7 @@ function createCueList(video) {
 		},
 
 		/**
-		 * Disposes the cue list.
+		 * Clears the the cue list and removes all event listeners.
 		 */
 		dispose() {
 
